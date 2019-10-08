@@ -1,3 +1,3 @@
-resource "slack" "test" {
+resource "slack" "slack" {
     hook_url = "https://api.slack.com"
 }
