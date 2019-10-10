@@ -4,9 +4,7 @@ A terraform provider which allows us to send messages to slack
 from terraform files (for instance, before creating/updating
 a Kubernetes cluster)
 
-**Note:** You will need to create an [incoming webhook][1]
-
-[1]: (https://api.slack.com/incoming-webhooks) 
+**Note:** You will need to create an [incoming webhook][webhook] for Slack before proceeding.
 
 ## Example usage
 
@@ -24,3 +22,5 @@ $ terraform apply -var webhook_url=<fixme>
 ## License
 
 This project is licensed under [MIT](LICENSE).
+
+[webhook]: https://api.slack.com/incoming-webhooks
