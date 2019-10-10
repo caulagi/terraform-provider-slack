@@ -10,7 +10,7 @@ a Kubernetes cluster)
 
 ```shell
 # build the plugin
-$ go build -o terraform-provider-slack
+$ go build -o example/.terraform/plugins/darwin_amd64/terraform-provider-slack
 
 # Run the example which will send a slack message
 $ cd example
