@@ -1,9 +1,9 @@
 package slack
 
 import (
-	"log"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/nlopes/slack"
+	"log"
 )
 
 func resourceServer() *schema.Resource {
