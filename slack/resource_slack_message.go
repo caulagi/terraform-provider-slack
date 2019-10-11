@@ -13,9 +13,7 @@ func resourceServer() *schema.Resource {
 		Update: resourceServerUpdate,
 		Delete: resourceServerDelete,
 
-		Importer: &schema.ResourceImporter{
-			State: schema.ImportStatePassthrough,
-		},
+		Importer: nil,
 
 		Schema: map[string]*schema.Schema{
 			"message": {
