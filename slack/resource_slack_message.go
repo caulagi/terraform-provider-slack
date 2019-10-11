@@ -6,12 +6,12 @@ import (
 	"log"
 )
 
-func resourceServer() *schema.Resource {
+func slackMessage() *schema.Resource {
 	return &schema.Resource{
-		Create: resourceServerCreate,
-		Read:   resourceServerRead,
-		Update: resourceServerUpdate,
-		Delete: resourceServerDelete,
+		Create: slackMessageCreate,
+		Read:   slackMessageRead,
+		Update: slackMessageUpdate,
+		Delete: slackMessageDelete,
 
 		Importer: nil,
 
@@ -25,26 +25,26 @@ func resourceServer() *schema.Resource {
 	}
 }
 
-func resourceServerCreate(d *schema.ResourceData, m interface{}) error {
-	config := m.(Config)
+func slackMessageCreate(d *schema.ResourceData, m interface{}) error {
 	message := d.Get("message").(string)
-	d.SetId(message)
-	err := sendMessage(message, config.webhookURL)
+	err := sendMessage(message, m.(Config).webhookURL)
 	if err != nil {
-		return resourceServerRead(d, m)
+
+		return err
 	}
-	return err
+	d.SetId(message)
+	return slackMessageRead(d, m)
 }
 
-func resourceServerRead(d *schema.ResourceData, m interface{}) error {
+func slackMessageRead(d *schema.ResourceData, m interface{}) error {
 	return nil
 }
 
-func resourceServerUpdate(d *schema.ResourceData, m interface{}) error {
-	return resourceServerRead(d, m)
+func slackMessageUpdate(d *schema.ResourceData, m interface{}) error {
+	return slackMessageRead(d, m)
 }
 
-func resourceServerDelete(d *schema.ResourceData, m interface{}) error {
+func slackMessageDelete(d *schema.ResourceData, m interface{}) error {
 	return nil
 }
 
