@@ -20,7 +20,7 @@ func Provider() *schema.Provider {
 		},
 
 		ResourcesMap: map[string]*schema.Resource{
-			"slack_message": resourceServer(),
+			"slack_message": slackMessage(),
 		},
 
 		ConfigureFunc: configureProvider,
