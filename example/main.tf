@@ -3,7 +3,7 @@ provider "slack" {
 }
 
 provider "google" {
-  project = var.google_project
+  project = var.project
 }
 
 resource "slack_message" "message" {
