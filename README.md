@@ -14,7 +14,7 @@ $ go build -o example/.terraform/plugins/darwin_amd64/terraform-provider-slack
 
 # Run the example which will send a slack message
 $ cd example
-$ terraform init -plugin-dir ..
+$ terraform init
 $ terraform plan -var webhook_url=<fixme>
 $ terraform apply -var webhook_url=<fixme>
 ```

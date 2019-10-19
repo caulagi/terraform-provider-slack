@@ -20,3 +20,13 @@ jobs:
         uses: hashicorp/terraform-github-actions/fmt@v0.4.6
         env:
           TF_ACTION_WORKING_DIR: ./example
+          TF_ACTION_COMMENT: false
+  terraform-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Build and validate slack provider
+        uses: ./.github/
+      - run: go build -o .terraform/plugins/linux_amd64/terraform-provider-slack
+      - run: terraform init example
+      - run: terraform validate example
