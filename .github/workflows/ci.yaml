@@ -3,12 +3,20 @@ name: CI workflow
 on: [push]
 
 jobs:
-  gofmt:
+  go-fmt:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Check code style
+      - name: Check Go code style for the provider
         uses: actions/setup-go@v1
         with:
           go-version: "1.13.1"
       - run: bash scripts/gofmtcheck.sh
+  terraform-fmt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Check format of terraform example
+        uses: hashicorp/terraform-github-actions/fmt@v0.4.6
+        env:
+          TF_ACTION_WORKING_DIR: ./example
