@@ -1,5 +1,5 @@
 provider "slack" {
-  # webhook_url = var.webhook_url
+  webhook_url = var.webhook_url
 }
 
 provider "google" {
@@ -13,7 +13,7 @@ resource "slack_message" "message" {
 resource "google_compute_instance" "slack-test" {
   depends_on = ["slack_message.message"]
 
-  name     = "tf-slack"
+  name         = "tf-slack"
   machine_type = "f1-micro"
   zone         = "europe-west1-b"
 
